@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CoreCrud.Models.Faculty>
+
+<h1>Faculty Index</h1>
+<a asp-action="Create" asp-controller="Faculty" class="btn btn-info">Create</a>
+<table class="table bg-danger">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Picture</td>
+            <td>FacultyName</td>
+            <td>PhoneNumber</td>
+            <td>CourseName</td>
+            <td>CourseStartDate</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>
+                    @if(item.PicPath != null)
+                    {
+                        <img src="@Url.Content(item.PicPath)" />
+                    }
+                </td>
+                <td>@item.FacultyName</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.CourseName</td>
+                <td>@item.CourseStartDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
